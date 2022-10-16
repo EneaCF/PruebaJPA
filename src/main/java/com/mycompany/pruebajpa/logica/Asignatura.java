@@ -9,13 +9,13 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Asignatura implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private String nombre;
     private String tipo;
-    
+
     @ManyToOne
     private Carrera carrera;
 
@@ -36,8 +36,7 @@ public class Asignatura implements Serializable {
     public void setCarrera(Carrera carrera) {
         this.carrera = carrera;
     }
-    
-    
+
     public long getId() {
         return id;
     }
@@ -61,6 +60,5 @@ public class Asignatura implements Serializable {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
-    
+
 }

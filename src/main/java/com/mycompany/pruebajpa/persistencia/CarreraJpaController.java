@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.pruebajpa.persistencia;
 
 import com.mycompany.pruebajpa.logica.Carrera;
@@ -16,18 +12,15 @@ import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-/**
- *
- * @author Enea
- */
 public class CarreraJpaController implements Serializable {
 
     public CarreraJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    public CarreraJpaController(){
+
+    public CarreraJpaController() {
         emf = Persistence.createEntityManagerFactory("PruebaJPAPersistenceUnit");
-        
+
     }
     private EntityManagerFactory emf = null;
 
@@ -138,5 +131,5 @@ public class CarreraJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

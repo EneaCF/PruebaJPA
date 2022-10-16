@@ -1,4 +1,3 @@
-
 package com.mycompany.pruebajpa.logica;
 
 import java.io.Serializable;
@@ -11,17 +10,18 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity 
+@Entity
 public class Alumno implements Serializable {
-    @Id 
+
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String nombre;
     private String apellido;
-    
+
     @Temporal(TemporalType.DATE)
     private Date fechaNacimiento;
-    
+
     @OneToOne
     private Carrera carrera;
 
@@ -43,8 +43,6 @@ public class Alumno implements Serializable {
     public void setCarrera(Carrera carrera) {
         this.carrera = carrera;
     }
-
-   
 
     public long getId() {
         return id;
@@ -81,5 +79,5 @@ public class Alumno implements Serializable {
     @Override
     public String toString() {
         return "Alumno{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", fechaNacimiento=" + fechaNacimiento + ", carrera=" + carrera.getNombre() + '}';
-    }    
+    }
 }

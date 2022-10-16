@@ -3,7 +3,6 @@ package com.mycompany.pruebajpa.logica;
 
 import java.io.Serializable;
 import java.util.LinkedList;
-import javax.annotation.processing.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,11 +11,12 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Carrera implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private String nombre;
-    @OneToMany (mappedBy="carrera")
+    @OneToMany(mappedBy = "carrera")
     private LinkedList<Asignatura> listaAsignaturas;
 
     public Carrera() {
@@ -35,8 +35,6 @@ public class Carrera implements Serializable {
     public void setListaAsignaturas(LinkedList<Asignatura> listaAsignaturas) {
         this.listaAsignaturas = listaAsignaturas;
     }
-    
-   
 
     public long getId() {
         return id;
@@ -53,6 +51,4 @@ public class Carrera implements Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    
 }
