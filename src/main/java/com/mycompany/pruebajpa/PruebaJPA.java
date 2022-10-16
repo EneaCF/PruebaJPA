@@ -28,8 +28,7 @@ public class PruebaJPA {
         //Crear alumno con carrera y guardar en BD
         Alumno alum = new Alumno(2,"Enea","test2",new Date(),carrera);
         control.crearAlumno(alum);
-        
-       
+
         Alumno alu = control.traerAlumno(4);
         System.out.println("-----------------------");
         System.out.println("El alumno es : " + alu.toString());
