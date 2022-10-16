@@ -1,6 +1,7 @@
 package com.mycompany.pruebajpa.persistencia;
 
 import com.mycompany.pruebajpa.logica.Alumno;
+import com.mycompany.pruebajpa.logica.Asignatura;
 import com.mycompany.pruebajpa.logica.Carrera;
 import com.mycompany.pruebajpa.persistencia.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
@@ -12,7 +13,9 @@ public class ControladoraPersistencia {
     
     AlumnoJpaController alumnoJPa = new AlumnoJpaController();
     CarreraJpaController carreraJpa = new CarreraJpaController();
-
+    AsignaturaJpaController asignaturaJpa = new AsignaturaJpaController();
+    
+    //Metodos Alumno
     public void crearAlumno(Alumno alumno) {
         alumnoJPa.create(alumno);
     }
@@ -43,7 +46,7 @@ public class ControladoraPersistencia {
         return listaAlumnos;
     }
 
-    
+    //Metodos Carrera
     public void crearCarrera(Carrera carrera) {
         carreraJpa.create(carrera);
     }
@@ -71,6 +74,37 @@ public class ControladoraPersistencia {
         } catch (Exception ex) {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    //Metodos Asignatura
+    public void crearAsignatura(Asignatura asignatura) {
+        asignaturaJpa.create(asignatura);
+    }
+
+    public void eliminarAsignatura(long id) {
+        try {
+            asignaturaJpa.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void editarAsignatura(Asignatura asignatura) {
+        try {
+            asignaturaJpa.edit(asignatura);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public Asignatura traerAsignatura(long id) {
+        return asignaturaJpa.findAsignatura(id);
+    }
+
+    public ArrayList<Asignatura> traerListaAsignaturas() {
+        List<Asignatura> aux = asignaturaJpa.findAsignaturaEntities();
+        ArrayList<Asignatura> listaAsignaturas = new ArrayList(aux);
+        return listaAsignaturas;
     }
      
 }

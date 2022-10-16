@@ -1,43 +1,43 @@
-
 package com.mycompany.pruebajpa.logica;
 
 import java.io.Serializable;
-import java.util.LinkedList;
-import javax.annotation.processing.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Carrera implements Serializable {
+public class Asignatura implements Serializable {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private String nombre;
-    @OneToMany (mappedBy="carrera")
-    private LinkedList<Asignatura> listaAsignaturas;
+    private String tipo;
+    
+    @ManyToOne
+    private Carrera carrera;
 
-    public Carrera() {
+    public Asignatura() {
     }
 
-    public Carrera(long id, String nombre, LinkedList<Asignatura> listaAsignaturas) {
+    public Asignatura(long id, String nombre, String tipo, Carrera carrera) {
         this.id = id;
         this.nombre = nombre;
-        this.listaAsignaturas = listaAsignaturas;
+        this.tipo = tipo;
+        this.carrera = carrera;
     }
 
-    public LinkedList<Asignatura> getListaAsignaturas() {
-        return listaAsignaturas;
+    public Carrera getCarrera() {
+        return carrera;
     }
 
-    public void setListaAsignaturas(LinkedList<Asignatura> listaAsignaturas) {
-        this.listaAsignaturas = listaAsignaturas;
+    public void setCarrera(Carrera carrera) {
+        this.carrera = carrera;
     }
     
-   
-
+    
     public long getId() {
         return id;
     }
@@ -52,6 +52,14 @@ public class Carrera implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
     
     

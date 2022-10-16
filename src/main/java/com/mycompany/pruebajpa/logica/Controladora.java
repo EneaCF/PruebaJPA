@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Controladora {
     ControladoraPersistencia controlPer = new ControladoraPersistencia();
     
+    //Metodos Alumno
     public void crearAlumno(Alumno alumno){
         controlPer.crearAlumno(alumno);
     }
@@ -27,7 +28,7 @@ public class Controladora {
     }
     
     
-    
+    //Metodos Carrera
     public void crearCarrera(Carrera carrera){
         controlPer.crearCarrera(carrera);
     }
@@ -46,5 +47,26 @@ public class Controladora {
     
     public ArrayList<Carrera> traerCarreras(){
         return controlPer.traerListaCarreras();
+    }
+    
+    //Metodos Asignatura
+    public void crearAsignatura(Asignatura asignatura){
+        controlPer.crearAsignatura(asignatura);
+    }
+    
+    public void eliminarAsignatura(long id){
+        controlPer.eliminarAsignatura(id);
+    }
+    
+    public void editarAsignatura(Asignatura asignatura){
+        controlPer.editarAsignatura(asignatura);
+    }
+    
+    public Asignatura traerAsignatura(long id){
+        return controlPer.traerAsignatura(id);
+    }
+    
+    public ArrayList<Asignatura> traerAsignaturas(){
+        return controlPer.traerListaAsignaturas();
     }
 }
