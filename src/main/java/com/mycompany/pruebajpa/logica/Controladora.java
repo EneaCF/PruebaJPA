@@ -25,4 +25,26 @@ public class Controladora {
     public ArrayList<Alumno> traerAlumnos(){
         return controlPer.traerListaAlumnos();
     }
+    
+    
+    
+    public void crearCarrera(Carrera carrera){
+        controlPer.crearCarrera(carrera);
+    }
+    
+    public void eliminarCarrera(long id){
+        controlPer.eliminarCarrera(id);
+    }
+    
+    public void editarCarrera(Carrera carrera){
+        controlPer.editarCarrera(carrera);
+    }
+    
+    public Carrera traerCarrera(long id){
+        return controlPer.traerCarrera(id);
+    }
+    
+    public ArrayList<Carrera> traerCarreras(){
+        return controlPer.traerListaCarreras();
+    }
 }
